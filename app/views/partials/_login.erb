@@ -1,0 +1,15 @@
+
+<p class="error-message">
+<% if errors %>
+  <% errors.each do |err| %>
+    <%= err %><br>
+  <% end %>
+<% end %>
+</p>
+
+
+<form method="post" action="/login" class="user-form">
+  <input type="email" name="credentials[email]" placeholder="Email" >
+  <input type="password" name="credentials[password]" placeholder="Password">
+  <input type="submit" value="Login">
+</form>
