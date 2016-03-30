@@ -23,11 +23,13 @@
       <p>Answered by: <%= answer.user.name %>, On: <%= answer.created_at %></p>
       <span><%= answer.score %> votes</span>
       <% if answer.comments.count > 0 %>
-      <div class="comments-container">
+
         <% answer.comments.each do |comment| %>
+        <div class="comments-container">
           <%= erb :"comments/_comment_show", locals: {comment: comment} %>
+          </div>
         <% end %>
-      </div>
+
       <% end %>
 
     </div>
