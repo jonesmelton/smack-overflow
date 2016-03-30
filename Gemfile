@@ -9,9 +9,9 @@ gem 'sinatra-contrib'
 
 gem 'activesupport', '~>4.2.0'
 gem 'activerecord', '~>4.2.0'
-
+gem 'pry'
 gem 'rake'
-
+gem 'bcrypt'
 gem 'shotgun'
 
 group :test do
@@ -22,6 +22,6 @@ group :test do
 end
 
 group :test, :development do
-  gem 'factory_girl'
+  gem 'factory_girl', "~> 4.0"
   gem 'faker'
 end
