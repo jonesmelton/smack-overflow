@@ -18,3 +18,10 @@ end
 Answer.find((1..Answer.count).to_a.sample).votes << Vote.new(user: User.find((1..User.count).to_a.sample), vote_value: 1)
 end
 
+200.times do
+Answer.find((1..Answer.count).to_a.sample).comments << Comment.new(user: User.find((1..User.count).to_a.sample), content: Faker::Hacker.say_something_smart)
+end
+
+10000.times do
+Comment.find((1..Comment.count).to_a.sample).votes << Vote.new(user: User.find((1..User.count).to_a.sample), vote_value: 1)
+end

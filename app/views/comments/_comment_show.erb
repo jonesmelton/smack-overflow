@@ -1,4 +1,5 @@
 <div class="individual-comment">
   <p><%= comment.content %></p>
+  <%= comment.votes.sum(:vote_value) %>
   <p>Commented by: <%= comment.user.name %>, On: <%= comment.created_at %></p>
 </div>
