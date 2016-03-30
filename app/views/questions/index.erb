@@ -1,8 +1,8 @@
 <div class="container">
   <% @questions.each do |question|%>
-  <div>
+  <div class="individual-question">
     <h4><a href="/questions/<%= question.id%>"><%= question.title %></a></h4>
-    <p>Created by: <%= question.user %>, On: <%= question.created_at %></p>
+    <p>Created by: <%= question.user.name %>, On: <%= question.created_at %></p>
   </div>
     <% end %>
 </div>

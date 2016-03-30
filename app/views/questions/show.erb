@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="individual-question">
+    <h4><%= @question.title %></h4>
+    <p>Created by: <%= @question.user.name %>, On: <%= @question.created_at %></p>
+    <p><%= @question.content %></p>
+  </div>
+
+  <div class="answers-container">
+    <% @question.answers.each do |answer|  %>
+    <div class="individual-answer">
+      <p>Answered by: <%= answer.user.name %>, On: <%= answer.created_at %></p>
+    </div>
+    <% end %>
+  </div>
+
+</div>
