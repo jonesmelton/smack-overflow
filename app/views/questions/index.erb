@@ -3,7 +3,7 @@
   <div class="individual-question">
     <h4><a href="/questions/<%= question.id%>"><%= question.title %></a></h4>
     <p>Created by: <%= question.user.name %>, On: <%= question.created_at %></p>
-    <span><%= question.votes.count %> votes</span>
+    <span><%= question.score %> votes</span>
   </div>
     <% end %>
 </div>

@@ -7,9 +7,6 @@ get '/questions/new' do
   erb :'questions/new'
 end
 
-# need to insert current_user as the user who posted the question
-# hidden formfield, line 5 of questions/new erb
-#
 post '/questions' do
   @question = Question.new(params[:question])
   if @question.save
@@ -19,7 +16,20 @@ post '/questions' do
   end
 end
 
+get '/questions/:question_id/answers/new' do
+  @question = Question.find(params[:question_id])
+  erb :'answers/new'
+end
 
+post '/questions/:question_id/answers' do
+  @question = Question.find(params[:question_id])
+  @answer = @question.answers.new(params[:answer])
+  if @answer.save
+    redirect "/questions/#{@question.id}"
+  else
+    erb :'answers/new'
+  end
+end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])

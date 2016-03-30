@@ -2,7 +2,7 @@
   <form class="new-question" action="/questions" method="post">
     <input type="text" name="question[title]" placeholder="title">
     <input type="text" name="question[content]" placeholder="Ask question">
-    <input type="hidden" name="question[user_id]" value="">
+    <input type="hidden" name="question[user_id]" value="<%= current_user.id %>">
     <input type="submit" value="Ask Question">
   </form>
 </div>
