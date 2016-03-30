@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   def password=(new_password)
     @plain_password = new_password
-    @password = Password.create(hashed_password)
+    @password = Password.create(new_password)
     self.hashed_password = @password
   end
 
@@ -32,7 +32,8 @@ class User < ActiveRecord::Base
 
   def self.authenticate(args = {})
     current_user = User.find_by(email: args[:email])
-    if current_user.password == args[:password]
+    # binding.pry
+    if current_user && current_user.password == args[:password]
       current_user
     else
       nil
