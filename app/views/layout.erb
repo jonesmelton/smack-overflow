@@ -14,8 +14,9 @@
 <body>
   <!-- Header for User management -->
   <header>
-    <% if session[:user_id] %>
+    <% if logged_in? %>
     <a href="/logout">Log out</a>
+    <%= current_user.name %>
     <%else%>
     <a href="/users/new">Register</a>
     <a href="/login">Log in</a>

@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  # Remember to create a migration!
+  include Votable
   belongs_to :user
 
   belongs_to :best_answer, class_name: "Answer", foreign_key: :best_answer_id
