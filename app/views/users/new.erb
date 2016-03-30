@@ -1,0 +1,10 @@
+
+<% if @errors %>
+
+<% end %>
+<form class="user-form" action="/users" method="post">
+  <input type="text" name="credentials[user_name]" placeholder="Name">
+  <input type="email" name="credentials[email]" placeholder="Email">
+  <input type="password" name="credentials[password]" placeholder="Password">
+  <input type="submit" name="Sign up">
+</form>
