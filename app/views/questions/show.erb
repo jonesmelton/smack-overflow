@@ -2,6 +2,7 @@
 
   <div class="individual-question">
     <h4><%= @question.title %></h4>
+    <p><%= @question.score %> votes</p>
     <p>Created by: <%= @question.user.name %>, On: <%= @question.created_at %></p>
     <p><%= @question.content %></p>
 
@@ -20,6 +21,7 @@
     <div class="individual-answer">
       <p><%= answer.content %></p>
       <p>Answered by: <%= answer.user.name %>, On: <%= answer.created_at %></p>
+      <span><%= answer.score %> votes</span>
       <% if answer.comments.count > 0 %>
       <div class="comments-container">
         <% answer.comments.each do |comment| %>
