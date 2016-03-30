@@ -95,7 +95,7 @@ namespace :db do
 
   desc "Drop the database at #{DB_NAME}"
   task :drop do
-    puts "Dropping development and test databases..."
+    puts "DROP THE BASE"
     system("dropdb #{APP_NAME}_development && dropdb #{APP_NAME}_test")
   end
 
@@ -135,7 +135,7 @@ end
 
 desc 'Start IRB with application environment loaded'
 task "console" do
-  exec "irb -r./config/environment"
+  exec "pry -r./config/environment"
 end
 
 
