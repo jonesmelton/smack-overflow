@@ -1,6 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
+      t.string :title
       t.integer :best_answer_id
       t.string :content, null: false
       t.integer :user_id, null: false
