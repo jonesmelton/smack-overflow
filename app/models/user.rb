@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :votes
 
   validates :name, :email, {:presence => true}
+  validates :email, uniqueness: true
+  validates :name, uniqueness: true
 
   validate :password_check
 
@@ -25,6 +27,15 @@ class User < ActiveRecord::Base
       errors.add(:password, "must be present")
     elsif @plain_password.length < 6
       errors.add(:password, "must be 6 or more characters")
+    end
+  end
+
+  def self.authenticate(args = {})
+    current_user = User.find_by(email: args[:email])
+    if current_user.password == args[:password]
+      current_user
+    else
+      nil
     end
   end
 
