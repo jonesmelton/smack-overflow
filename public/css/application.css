@@ -27,6 +27,43 @@
   padding: 5px;
   margin: 5px;
   border: 1px solid red;
+  position: relative;
+
+}
+
+.individual-comment {
+  display: inline-block;
+  max-width: 90%;
+  margin-left: 10%;
+
+}
+
+.vote-buttons a {
+  text-decoration: none;
+}
+
+.vote-buttons {
+  position: absolute;
+  left: 0px;
+  display: block;
+  width: 10%;
+  padding-left: 10px;
+  margin: auto;
+}
 
 
+header {
+  text-align: center;
+  font-size: 40px;
+}
+
+nav {
+  color: red;
+  text-align: center;
+  background-color: black;
+  box-shadow: -10px 10px 5px grey;
+}
+
+nav a:visited {
+  color: red;
 }
