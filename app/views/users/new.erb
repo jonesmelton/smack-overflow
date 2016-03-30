@@ -1,12 +1,14 @@
-<p class="error-message">
+
 <% if @errors %>
+<p class="error-message">
   <% @errors.each do |err| %>
     <%= err %><br>
   <% end %>
+  </p>
 <% end %>
-</p>
+
 <form class="user-form" action="/users" method="post">
-  <input type="text" name="credentials[name]" placeholder="Name">
+  <input type="text" name="credentials[name]" placeholder="Username">
   <input type="email" name="credentials[email]" placeholder="Email">
   <input type="password" name="credentials[password]" placeholder="Password">
   <input type="submit" name="Sign up">
