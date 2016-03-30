@@ -30,3 +30,34 @@
 
 
 }
+
+.individual-comment {
+  display: inline-block;
+  max-width: 90%;
+
+}
+
+.vote-buttons {
+  align: left;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: black;
+}
+
+
+header {
+  text-align: center;
+  font-size: 40px;
+}
+
+nav {
+  color: red;
+  text-align: center;
+  background-color: black;
+  box-shadow: -10px 10px 5px grey;
+}
+
+nav a:visited {
+  color: red;
+}

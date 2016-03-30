@@ -1,4 +1,5 @@
 
+
 get "/users/new" do #User Registration Page
 
   erb :'/users/new'
