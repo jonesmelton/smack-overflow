@@ -3,7 +3,6 @@
 
   User.create!(name: Faker::Superhero.name, email: Faker::Internet.free_email, password: "password")
 
-
 end
 
 User.first.questions << Question.new(title: Faker::Lorem.sentence(5), content: Faker::Lorem.paragraph(5))
