@@ -5,7 +5,7 @@
   else
     vote_value = 1
   end
-  @vote = @comment.votes.new(vote_value: vote_value)
+  @vote = @comment.votes.new(vote_value: vote_value, user: current_user)
   if @vote.save
     redirect "/questions/#{@comment.commentable.question.id}"
   else
