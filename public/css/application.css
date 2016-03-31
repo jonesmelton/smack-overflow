@@ -13,7 +13,7 @@
 
 .questions-container {
 
-  margin: 5px;
+  margin: 10px;
   /*border: 1px solid black;*/
   position: relative;
   /*background: linear-gradient(#1476FF, white);*/
@@ -22,8 +22,9 @@
 
 .individual-question {
 
-
+  width: 70%
   margin-left: 6%;
+  padding-left: 60px;
 }
 
 .answers-container {
@@ -37,6 +38,7 @@
 .individual-answer {
   margin: 5px;
   margin-left: 6%;
+
   /*border: 1px solid blue;*/
 }
 
@@ -68,7 +70,7 @@
   width: 5%;
   padding-left: 10px;
   margin: auto;
-  padding-top: 10px;
+  padding-top: 5px;
   text-align: center;
 }
 
@@ -92,7 +94,7 @@ header a:visited {
 
 #logo {
   position: absolute;
-  left: 0px;
+  left: 250px;
   width: 150px;
   height: 150px;
 }
@@ -118,4 +120,10 @@ nav a:visited {
 h4 {
   font-family: 'Amatic SC', cursive;
   font-size: 40px;
+  margin: 0;
+}
+
+input {
+  background: transparent;
+  border: none;
 }
