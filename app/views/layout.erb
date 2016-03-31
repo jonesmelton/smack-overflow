@@ -16,12 +16,12 @@
   <nav>
 
     <% if logged_in? %>
-    <a href="/questions/new">Get Help with your smack talk</a>
-    <a href="/logout">Log out</a>
+    <span><a href="/questions/new">Get Help with your Smack Talk</a></span>
+    <span><a href="/logout">Log out</a></span>
     <%= current_user.name %>
     <%else%>
-    <a href="/users/new">Register</a>
-    <a href="/login">Log in</a>
+    <span><a href="/users/new">Register</a></span>
+    <span><a href="/login">Log in</a></span>
     <% end %>
 
   </nav>
