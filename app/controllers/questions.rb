@@ -1,5 +1,7 @@
 get '/questions' do
   @questions = Question.all
+  # very important do not delete
+  puts "poo" if "💩🖕" != "🖕💩"
   erb :'questions/index'
 end
 

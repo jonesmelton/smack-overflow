@@ -1,5 +1,7 @@
 class Vote < ActiveRecord::Base
-  # Remember to create a migration!
   belongs_to :user
+  validates :user, presence: true
   belongs_to :votable, polymorphic: true
+  validates :user, uniqueness: { scope: :votable,
+    message: "can only vote once." }
 end

@@ -19,13 +19,28 @@
 
 
     <% @question.answers.each do |answer|  %>
+
     <div class="answers-container">
     <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>
+
     <div class="individual-answer">
+
+      <% if answer == @question.best_answer %>
+        <p> 💯 💯 💯 💯 💯 💯 💯 OMG BEST ANSWER 💯 💯 💯 💯 💯 💯 💯 </p>
+      <% end %>
+
       <p><%= answer.content %></p>
       <p>Answered by: <%= answer.user.name %>, On: <%= long_form_date(answer.created_at) %></p>
       <% if answer.comments.count > 0 %>
 
+      <% if owner?(@question) %>
+        <form class="best-answer-button" method="POST" action="/answers/<%= answer.id %>/questions/<%= @question.id %>">
+          <input type="hidden" name="_method" value="put">
+          <input type="submit" value="Mark as best">
+        </form>
+      <% end %>
+
+      <div class="comments-container">
         <% answer.comments.each do |comment| %>
         <div class="comments-container">
           <%= erb :"comments/_comment_show", locals: {comment: comment} %>
