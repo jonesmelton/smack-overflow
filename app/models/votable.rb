@@ -18,7 +18,10 @@ module Votable
     else
       vote_value = 1
     end
+  end
 
+  def most_popular #Returns a list of all objects with highest score first
+    self.all.sort { |a,b| b.score <=> a.score}
   end
 
 end

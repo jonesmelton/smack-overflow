@@ -41,7 +41,7 @@
       <% end %>
 
 
-        <% answer.comments.each do |comment| %>
+        <% answer.comments.most_popular.each do |comment| %>
           <div class="comments-container">
           <%= erb :"comments/_comment_show", locals: {comment: comment} %>
           </div>

@@ -8,4 +8,7 @@ class Comment < ActiveRecord::Base
 
   has_many :votes, as: :votable
 
+  def self.most_popular
+    Comment.all.sort { |a,b| b.score <=> a.score}
+  end
 end
