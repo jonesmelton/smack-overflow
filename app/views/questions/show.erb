@@ -1,24 +1,25 @@
 <div class="container">
+
   <div class="questions-container">
     <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: @question}) %>
+
     <div class="individual-question">
-    <h4><%= @question.title %></h4>
-
-    <p>Created by: <%= @question.user.name %>, On: <%= long_form_date(@question.created_at) %></p>
-    <p><%= @question.content %></p>
+      <h4><%= @question.title %></h4>
+      <p>Created by: <%= @question.user.name %>, On: <%= long_form_date(@question.created_at) %></p>
+      <p><%= @question.content %></p>
     </div>
+
     <% if @question.comments.count > 0 %>
-    <div class="comments-container">
-      <% @question.comments.each do |comment| %>
-        <%= erb :"comments/_comment_show", locals: {comment: comment} %>
-      <% end %>
-
-    </div>
-    <% end %>
-        <% if logged_in? %>
-          <a href="/questions/<%= @question.id %>/comments/new">Give your opinion on this stupid question.</a>
+      <div class="comments-container">
+        <% @question.comments.each do |comment| %>
+          <%= erb :"comments/_comment_show", locals: {comment: comment} %>
         <% end %>
+      </div>
+    <% end %>
 
+        <% if logged_in? %>
+          <a class="question-comment-button" href="/questions/<%= @question.id %>/comments/new">Give your opinion on this stupid question.</a>
+        <% end %>
 
   </div>
 
@@ -58,7 +59,7 @@
       </div>
 
       <% if logged_in? %>
-        <a href="/answers/<%= answer.id %>/comments/new">Talk about this smack.</a>
+        <a class="answer-comment-button" href="/answers/<%= answer.id %>/comments/new">Talk about this smack.</a>
       <% end %>
 
     </div>
