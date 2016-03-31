@@ -39,9 +39,11 @@
 
       <div class="comments-container">
         <% answer.comments.each do |comment| %>
+        <div class="comments-container">
           <%= erb :"comments/_comment_show", locals: {comment: comment} %>
+          </div>
         <% end %>
-      </div>
+
       <% end %>
 
     </div>
