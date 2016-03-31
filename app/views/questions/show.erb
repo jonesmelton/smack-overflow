@@ -30,7 +30,7 @@
       <span><%= answer.score %> votes</span>
       <% if answer.comments.count > 0 %>
 
-      <% if owner?(@question) %>
+      <% if logged_in? && owner?(@question) %>
         <form class="best-answer-button" method="POST" action="/answers/<%= answer.id %>/questions/<%= @question.id %>">
           <input type="hidden" name="_method" value="put">
           <input type="submit" value="Mark as best">
