@@ -36,7 +36,7 @@ post "/users" do #Make new user
   else
     @errors = @user.errors.full_messages
 
-    erb :'/users/new'
+    redirect '/questions'
   end
 
 end
