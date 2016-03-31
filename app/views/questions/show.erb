@@ -1,11 +1,12 @@
 <div class="container">
-
+  <div class="questions-container">
+   <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: @question}) %>
   <div class="individual-question">
     <h4><%= @question.title %></h4>
-    <p><%= @question.score %> votes</p>
-    <p>Created by: <%= @question.user.name %>, On: <%= @question.created_at %></p>
-    <p><%= @question.content %></p>
 
+    <p>Created by: <%= @question.user.name %>, On: <%= long_form_date(@question.created_at) %></p>
+    <p><%= @question.content %></p>
+    </div>
     <% if @question.comments.count > 0 %>
     <div class="comments-container">
       <% @question.comments.each do |comment| %>
@@ -16,12 +17,13 @@
 
   </div>
 
-  <div class="answers-container">
+
     <% @question.answers.each do |answer|  %>
+    <div class="answers-container">
+    <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>
     <div class="individual-answer">
       <p><%= answer.content %></p>
-      <p>Answered by: <%= answer.user.name %>, On: <%= answer.created_at %></p>
-      <span><%= answer.score %> votes</span>
+      <p>Answered by: <%= answer.user.name %>, On: <%= long_form_date(answer.created_at) %></p>
       <% if answer.comments.count > 0 %>
 
         <% answer.comments.each do |comment| %>
@@ -33,7 +35,8 @@
       <% end %>
 
     </div>
+    </div>
     <% end %>
-  </div>
+
 
 </div>
