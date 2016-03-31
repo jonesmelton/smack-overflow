@@ -28,8 +28,8 @@
 
     <% @question.answers.each do |answer|  %>
 
-      <div class="answers-container">
-        <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>
+    <div class="answers-container">
+      <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>
 
       <div class="individual-answer">
 
@@ -39,32 +39,29 @@
 
       <p><%= answer.content %></p>
       <p>Answered by: <%= answer.user.name %>, On: <%= long_form_date(answer.created_at) %></p>
+
       <% if answer.comments.count > 0 %>
-
-      <% if logged_in? && owner?(@question) %>
-        <form class="best-answer-button" method="POST" action="/answers/<%= answer.id %>/questions/<%= @question.id %>">
-          <input type="hidden" name="_method" value="put">
-          <input type="submit" value="Mark as best">
-        </form>
-      <% end %>
-
-
-        <% answer.comments.most_popular.each do |comment| %>
-          <div class="comments-container">
-          <%= erb :"comments/_comment_show", locals: {comment: comment} %>
-
-          <% if logged_in? %>
-            <a href="/questions/<%= @question.id %>/comments/new">Give your opinion on this smack</a>
-          <% end %>
-
-          </div>
+        <% if logged_in? && owner?(@question) %>
+          <form class="best-answer-button" method="POST" action="/answers/<%= answer.id %>/questions/<%= @question.id %>">
+            <input type="hidden" name="_method" value="put">
+            <input type="submit" value="Mark as best">
+          </form>
         <% end %>
 
+          <% answer.comments.most_popular.each do |comment| %>
+            <div class="comments-container">
+            <%= erb :"comments/_comment_show", locals: {comment: comment} %>
+            </div>
+          <% end %>
+      <% end %>
+
+      </div>
+
+      <% if logged_in? %>
+        <a href="/answers/<%= answer.id %>/comments/new">Give your opinion on this smack</a>
       <% end %>
 
     </div>
-    </div>
     <% end %>
-
 
 </div>

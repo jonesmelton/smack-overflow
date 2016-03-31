@@ -7,7 +7,7 @@ post '/answers/:answer_id/comments' do
   @answer = Answer.find(params[:answer_id])
   @comment = @answer.comments.new(params[:comment])
   if @comment.save
-    redirect "/questions/#{@answer.question.id}/"
+    redirect "/questions/#{@answer.question.id}"
   else
     erb :'answers/new_comment'
   end
