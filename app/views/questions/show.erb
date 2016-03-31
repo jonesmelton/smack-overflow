@@ -1,11 +1,12 @@
 <div class="container">
-
-  <div class="individual-question">
+  <div class="questions-container">
+    <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: @question}) %>
+    <div class="individual-question">
     <h4><%= @question.title %></h4>
-    <p><%= @question.score %> votes</p>
-    <p>Created by: <%= @question.user.name %>, On: <%= @question.created_at %></p>
-    <p><%= @question.content %></p>
 
+    <p>Created by: <%= @question.user.name %>, On: <%= long_form_date(@question.created_at) %></p>
+    <p><%= @question.content %></p>
+    </div>
     <% if @question.comments.count > 0 %>
     <div class="comments-container">
       <% @question.comments.each do |comment| %>
@@ -16,30 +17,32 @@
 
   </div>
 
-  <div class="answers-container">
+
     <% @question.answers.each do |answer|  %>
 
-    <div class="individual-answer">
+      <div class="answers-container">
+        <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>
+
+      <div class="individual-answer">
 
       <% if answer == @question.best_answer %>
         <p> 💯 💯 💯 💯 💯 💯 💯 OMG BEST ANSWER 💯 💯 💯 💯 💯 💯 💯 </p>
       <% end %>
 
       <p><%= answer.content %></p>
-      <p>Answered by: <%= answer.user.name %>, On: <%= answer.created_at %></p>
-      <span><%= answer.score %> votes</span>
+      <p>Answered by: <%= answer.user.name %>, On: <%= long_form_date(answer.created_at) %></p>
       <% if answer.comments.count > 0 %>
 
-      <% if owner?(@question) %>
+      <% if logged_in? && owner?(@question) %>
         <form class="best-answer-button" method="POST" action="/answers/<%= answer.id %>/questions/<%= @question.id %>">
           <input type="hidden" name="_method" value="put">
           <input type="submit" value="Mark as best">
         </form>
       <% end %>
 
-      <div class="comments-container">
+
         <% answer.comments.each do |comment| %>
-        <div class="comments-container">
+          <div class="comments-container">
           <%= erb :"comments/_comment_show", locals: {comment: comment} %>
           </div>
         <% end %>
@@ -47,7 +50,8 @@
       <% end %>
 
     </div>
+    </div>
     <% end %>
-  </div>
+
 
 </div>

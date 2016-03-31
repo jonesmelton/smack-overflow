@@ -2,39 +2,60 @@
   color: red;
 }
 
+* {
+  /*font-size: .67em;*/
+}
+
 .container {
   max-width: 50%;
   margin: 20px auto;
 }
 
+.questions-container {
+
+  margin: 10px;
+  /*border: 1px solid black;*/
+  position: relative;
+  /*background: linear-gradient(#1476FF, white);*/
+  border-radius: 10px;
+}
+
 .individual-question {
-  padding: 5px;
-  border: 1px dotted black;
+
+  width: 70%
+  margin-left: 6%;
+  padding-left: 60px;
 }
 
 .answers-container {
   padding: 5px;
-  border: 1px dotted blue;
+  /*border: 1px dotted blue;*/
+  background: linear-gradient(#1476FF, white);
+  border-radius: 10px;
+  position: relative;
 }
 
 .individual-answer {
-  padding: 5px;
   margin: 5px;
-  border: 1px solid blue;
+  margin-left: 6%;
+
+  /*border: 1px solid blue;*/
 }
 
 .comments-container {
   padding: 5px;
   margin: 5px;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   position: relative;
+  background: linear-gradient(gray, white);
+  border-radius: 10px;
 
 }
 
 .individual-comment {
   display: inline-block;
-  max-width: 90%;
-  margin-left: 10%;
+  margin-left: 6%;
+  margin-right: 0px;
 
 }
 
@@ -45,25 +66,64 @@
 .vote-buttons {
   position: absolute;
   left: 0px;
-  display: block;
-  width: 10%;
+  display: inline;
+  width: 5%;
   padding-left: 10px;
   margin: auto;
+  padding-top: 5px;
+  text-align: center;
 }
 
 
 header {
   text-align: center;
-  font-size: 40px;
+  font-size: 80px;
+  font-family: 'Shadows Into Light', cursive, bold;
+  display: inline;
+  text-decoration: none;
+}
+
+header a {
+  text-decoration: none;
+
+}
+
+header a:visited {
+  color: black;
+}
+
+#logo {
+  position: absolute;
+  left: 250px;
+  width: 150px;
+  height: 150px;
+}
+
+#title {
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 100px;
 }
 
 nav {
-  color: red;
-  text-align: center;
+  color: white;
+  text-align: right;
   background-color: black;
-  box-shadow: -10px 10px 5px grey;
+  box-shadow: -10px 10px 5px gray;
+  font-family: 'Orbitron', sans-serif;
 }
 
 nav a:visited {
-  color: red;
+  color: white;
+}
+
+h4 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  margin: 0;
+}
+
+input {
+  background: transparent;
+  border: none;
 }

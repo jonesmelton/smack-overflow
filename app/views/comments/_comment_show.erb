@@ -1,5 +1,5 @@
 <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: comment}) %>
 <div class="individual-comment">
   <p><%= comment.content %></p>
-  <p>Commented by: <%= comment.user.name %>, On: <%= comment.created_at %></p>
+  <p>Commented by: <%= comment.user.name %>, On: <%= long_form_date(comment.created_at) %></p>
 </div>

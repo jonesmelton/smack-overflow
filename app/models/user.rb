@@ -32,7 +32,6 @@ class User < ActiveRecord::Base
 
   def self.authenticate(args = {})
     current_user = User.find_by(email: args[:email])
-    # binding.pry
     if current_user && current_user.password == args[:password]
       current_user
     else

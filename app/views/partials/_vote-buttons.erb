@@ -1,9 +1,11 @@
 <div class="vote-buttons">
   <form class="vote-button" type="submit" method="post" action="/<%= votable_thing.class.to_s.downcase %>s/<%= votable_thing.id %>/votes">
+    <input type="submit" name="vote_type" value="🖕"><br>
+
+    <%= votable_thing.score %><br>
     <input type="submit" name="vote_type" value="💩">
-    <input type="submit" name="vote_type" value="🖕">
   </form>
-  <%= votable_thing.score %><br>
+
 </div>
 
 <!-- Make sure you pass in a votable object as votable_thing when calling this partial. -->

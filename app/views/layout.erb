@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="/css/normalize.css">
 
   <link rel="stylesheet" href="/css/application.css">
-
+<link href='https://fonts.googleapis.com/css?family=Indie+Flower|Shadows+Into+Light|Amatic+SC|Cinzel|Bangers|Orbitron|Architects+Daughter' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
@@ -14,7 +14,7 @@
 <body>
   <!-- Header for User management -->
   <nav>
-    💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩
+
     <% if logged_in? %>
     <a href="/logout">Log out</a>
     <%= current_user.name %>
@@ -22,9 +22,13 @@
     <a href="/users/new">Register</a>
     <a href="/login">Log in</a>
     <% end %>
-    🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕 🖕
+
   </nav>
-  <header>SMACK OVERFLOW</header>
+  <header>
+    <div id="logo" ><img id="logo" src="../images/image1.png" alt="Mountain View"></div>
+    <div id="title"><a href="/questions"><strong>SMACK</strong> OVERFLOW!!!</a></div>
+  </header>
+  <br>
   <%= yield %>
 
 </body>
