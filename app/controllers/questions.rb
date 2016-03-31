@@ -6,12 +6,14 @@ get '/questions' do
 end
 
 get '/questions/new' do
+  authorize!
   erb :'questions/new'
 end
 
 post '/questions' do
+  authorize!
   @question = Question.new(params[:question])
-  if @question.save
+  if authenticate! && @question.save
     redirect '/questions'
   else
     erb :'questions/new'
@@ -19,11 +21,13 @@ post '/questions' do
 end
 
 get '/questions/:question_id/answers/new' do
+  authorize!
   @question = Question.find(params[:question_id])
   erb :'answers/new'
 end
 
 post '/questions/:question_id/answers' do
+  authorize!
   @question = Question.find(params[:question_id])
   @answer = @question.answers.new(params[:answer])
   if @answer.save
