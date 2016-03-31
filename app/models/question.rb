@@ -10,5 +10,8 @@ class Question < ActiveRecord::Base
 
   has_many :votes, as: :votable
 
+  def self.most_recent
+    Question.order(created_at: :desc).limit(10)
+  end
 
 end

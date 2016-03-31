@@ -1,5 +1,5 @@
 <div class="container">
-  <% @questions.each do |question|%>
+  <% @questions.most_recent.each do |question|%>
   <div class="questions-container">
   <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: question}) %>
   <div class="individual-question">
@@ -7,7 +7,9 @@
     <p style ="margin: 0;">Created by: <%= question.user.name %>, On: <%= long_form_date(question.created_at) %></p>
   </div>
   </div>
-  <div class="aligncenter" style="width:400px;height:3px;border-top:2px dotted #FF0000;border-bottom:2px dotted #FF0000;font-size:0;">-</div>
+  <br>
+  <div class="aligncenter"></div>
+
     <% end %>
   </div>
 
