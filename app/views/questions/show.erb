@@ -13,12 +13,12 @@
         <%= erb :"comments/_comment_show", locals: {comment: comment} %>
       <% end %>
 
-        <% if logged_in? %>
-          <a href="/questions/<%= @question.id %>/comments/new">Give your opinion on this smack</a>
-        <% end %>
-
     </div>
     <% end %>
+        <% if logged_in? %>
+          <a href="/questions/<%= @question.id %>/comments/new">Give your opinion on this stupid question.</a>
+        <% end %>
+
 
   </div>
 
@@ -58,7 +58,7 @@
       </div>
 
       <% if logged_in? %>
-        <a href="/answers/<%= answer.id %>/comments/new">Give your opinion on this smack</a>
+        <a href="/answers/<%= answer.id %>/comments/new">Talk about this smack.</a>
       <% end %>
 
     </div>
