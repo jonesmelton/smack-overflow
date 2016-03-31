@@ -6,6 +6,5 @@
     puts "something fucked up"
     redirect "/questions/#{@comment.commentable.question.id}"
   end
-
 end
 

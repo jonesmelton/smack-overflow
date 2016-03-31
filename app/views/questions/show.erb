@@ -12,11 +12,19 @@
       <% @question.comments.each do |comment| %>
         <%= erb :"comments/_comment_show", locals: {comment: comment} %>
       <% end %>
+
+        <% if logged_in? %>
+          <a href="/questions/<%= @question.id %>/comments/new">Give your opinion on this smack</a>
+        <% end %>
+
     </div>
     <% end %>
 
   </div>
 
+  <% if logged_in? %>
+    <a href="/questions/<%= @question.id %>/answers/new">Talk some smack!</a>
+  <% end %>
 
     <% @question.answers.each do |answer|  %>
 
@@ -44,6 +52,11 @@
         <% answer.comments.each do |comment| %>
           <div class="comments-container">
           <%= erb :"comments/_comment_show", locals: {comment: comment} %>
+
+          <% if logged_in? %>
+            <a href="/questions/<%= @question.id %>/comments/new">Give your opinion on this smack</a>
+          <% end %>
+
           </div>
         <% end %>
 

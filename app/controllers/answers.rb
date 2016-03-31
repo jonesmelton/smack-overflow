@@ -1,3 +1,18 @@
+get '/answers/:answer_id/comments/new' do
+  @answer = Answer.find(params[:answer_id])
+  erb :'answers/new_comment'
+end
+
+post '/answers/:answer_id/comments' do
+  @answer = Answer.find(params[:answer_id])
+  @comment = @answer.comments.new(params[:comment])
+  if @comment.save
+    redirect "/questions/#{@answer.question.id}/"
+  else
+    erb :'answers/new_comment'
+  end
+end
+
 # a question belongs to its best answer
 # processes the edit request to change question instance
 put '/answers/:answer_id/questions/:id' do

@@ -37,6 +37,21 @@ post '/questions/:question_id/answers' do
   end
 end
 
+get '/questions/:question_id/comments/new' do
+  @question = Question.find(params[:question_id])
+  erb :'questions/new_comment'
+end
+
+post '/questions/:question_id/comments' do
+  @question = Question.find(params[:question_id])
+  @comment = @question.comments.new(params[:comment])
+  if @comment.save
+    redirect "/questions/#{@question.id}"
+  else
+    erb :'questions/new_comment'
+  end
+end
+
 get '/questions/:id' do
   @question = Question.find(params[:id])
   erb :'questions/show'
