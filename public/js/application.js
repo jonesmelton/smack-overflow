@@ -15,7 +15,7 @@ $(document).ready(function() {
     console.log(value);
 
     return_hash = {
-      "stuff":value
+      "vote_type":value
     }
     // console.log(request);
 

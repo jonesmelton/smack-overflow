@@ -45,6 +45,7 @@
 .comments-container {
   padding: 5px;
   margin: 5px;
+  min-height: 100px;
   /*border: 1px solid red;*/
   position: relative;
   /*background: linear-gradient(gray, white);*/
@@ -143,5 +144,9 @@ input {
   margin-left: 30px;
   margin-top: 10px;
   display: block;
+}
+
+.buttons {
+  font-family: 'Orbitron', sans-serif;
 }
 

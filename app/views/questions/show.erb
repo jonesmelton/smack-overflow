@@ -12,16 +12,25 @@
       <% @question.comments.each do |comment| %>
         <%= erb :"comments/_comment_show", locals: {comment: comment} %>
       <% end %>
+
     </div>
     <% end %>
+        <% if logged_in? %>
+        <form method="get" action="/questions/<%= @question.id %>/comments/new">
+          <input type="submit" class="buttons"  value="Give your opinion on this stupid question."></input>
+        <% end %>
+
 
   </div>
 
+  <% if logged_in? %>
+    <a class="buttons" href="/questions/<%= @question.id %>/answers/new">Talk some smack!</a>
+  <% end %>
 
     <% @question.answers.each do |answer|  %>
 
-      <div class="answers-container">
-        <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>
+    <div class="answers-container">
+      <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>
 
       <div class="individual-answer">
 
@@ -31,27 +40,29 @@
 
       <p><%= answer.content %></p>
       <p>Answered by: <%= answer.user.name %>, On: <%= long_form_date(answer.created_at) %></p>
+
       <% if answer.comments.count > 0 %>
-
-      <% if logged_in? && owner?(@question) %>
-        <form class="best-answer-button" method="POST" action="/answers/<%= answer.id %>/questions/<%= @question.id %>">
-          <input type="hidden" name="_method" value="put">
-          <input type="submit" value="Mark as best">
-        </form>
-      <% end %>
-
-
-        <% answer.comments.most_popular.each do |comment| %>
-          <div class="comments-container">
-          <%= erb :"comments/_comment_show", locals: {comment: comment} %>
-          </div>
+        <% if logged_in? && owner?(@question) %>
+          <form class="best-answer-button" method="POST" action="/answers/<%= answer.id %>/questions/<%= @question.id %>">
+            <input type="hidden" name="_method" value="put">
+            <input type="submit" value="Mark as best">
+          </form>
         <% end %>
 
+          <% answer.comments.most_popular.each do |comment| %>
+            <div class="comments-container">
+            <%= erb :"comments/_comment_show", locals: {comment: comment} %>
+            </div>
+          <% end %>
+      <% end %>
+
+      </div>
+
+      <% if logged_in? %>
+        <a class="buttons" href="/answers/<%= answer.id %>/comments/new">Talk about this smack.</a>
       <% end %>
 
     </div>
-    </div>
     <% end %>
-
 
 </div>

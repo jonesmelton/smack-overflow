@@ -16,6 +16,7 @@
   <nav>
 
     <% if logged_in? %>
+    <a href="/questions/new">Get Help with your smack talk</a>
     <a href="/logout">Log out</a>
     <%= current_user.name %>
     <%else%>

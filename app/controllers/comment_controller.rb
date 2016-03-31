@@ -1,17 +1,12 @@
  post '/comments/:comment_id/votes' do
+  authorize!
   @comment = Comment.find(params[:comment_id])
+  @comment.place_vote(params[:vote_type], current_user)
   if request.xhr?
-      @comment.place_vote(params[:stuff], current_user)
-      content_type :json
-      {score: @comment.score}.to_json
+    content_type :json
+    {score: @comment.score}.to_json
   else
-    if @comment.place_vote(params[:vote_type], current_user)
-      redirect "/questions/#{@comment.commentable.question.id}"
-    else
-      puts "something fucked up"
-      redirect "/questions/#{@comment.commentable.question.id}"
-    end
+    redirect "/questions/#{@comment.commentable.question.id}"
   end
-
 end
 
