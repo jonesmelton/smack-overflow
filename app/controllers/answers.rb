@@ -18,8 +18,14 @@ end
 post '/answers/:answer_id/votes' do
   authorize!
   @answer = Answer.find(params[:answer_id])
-  if @answer.place_vote(params[:vote_type], current_user)
-    redirect "/questions/#{@answer.question.id}"
+  @vote = @answer.votes.find_by(user: current_user)
+  if @vote
+    @vote.destroy
+  end
+  @answer.place_vote(params[:vote_type], current_user)
+  if request.xhr?
+    content_type :json
+    {score: @answer.score}.to_json
   else
     redirect "/questions/#{@answer.question.id}"
   end

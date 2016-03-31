@@ -18,6 +18,7 @@
         <% if logged_in? %>
         <form method="get" action="/questions/<%= @question.id %>/comments/new">
           <input type="submit" class="buttons"  value="Give your opinion on this stupid question."></input>
+        </form>
         <% end %>
 
 
