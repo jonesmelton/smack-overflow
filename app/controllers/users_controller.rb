@@ -1,7 +1,4 @@
-
-
 get "/users/new" do #User Registration Page
-
   erb :'/users/new'
 end
 
@@ -27,16 +24,12 @@ get '/logout' do
 end
 
 post "/users" do #Make new user
-
  @user = User.new(params[:credentials])
-
   if @user.save
-
-
+    session[:user_id] = @user.id
+    redirect '/questions'
   else
     @errors = @user.errors.full_messages
-
     redirect '/questions'
   end
-
 end
