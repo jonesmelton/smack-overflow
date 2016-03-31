@@ -82,34 +82,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7f7f7f', end
 }
 
 
-header {
+.header {
   text-align: center;
   font-size: 80px;
   font-family: 'Shadows Into Light', cursive, bold;
   display: inline;
   text-decoration: none;
+  margin-left: 28%;
 }
 
-header a {
+.header a {
   text-decoration: none;
 
 }
 
-header a:visited {
+.header a:visited {
   color: black;
 }
 
 #logo {
-  position: absolute;
-  left: 250px;
+
+  vertical-align: middle;
   width: 150px;
   height: 150px;
 }
 
 #title {
-  margin-left: 100px;
-  margin-right: 100px;
-  height: 100px;
+
 }
 
 nav {

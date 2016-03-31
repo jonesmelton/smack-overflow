@@ -1,8 +1,8 @@
 <div class="vote-buttons">
   <form class="vote-button" type="submit" method="post" action="/<%= votable_thing.class.to_s.downcase %>s/<%= votable_thing.id %>/votes">
     <input type="submit" name="vote_type" value="🖕"><br>
-
-    <%= votable_thing.score %><br>
+    <span class="score">
+    <%= votable_thing.score %></span><br>
     <input type="submit" name="vote_type" value="💩">
   </form>
 

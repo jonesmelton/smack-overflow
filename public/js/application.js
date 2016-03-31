@@ -5,6 +5,32 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
-  // $(".container").on("click", "")
+  $(".container").on("click", ".vote-button > input", function(event) {
+    event.preventDefault();
+
+    var that = $(this)
+    var link = $(this).parent().attr("action");
+    console.log(link);
+    var value = $(this).attr("value");
+    console.log(value);
+
+    return_hash = {
+      "stuff":value
+    }
+    // console.log(request);
+
+    var req = $.ajax({
+      url: link,
+      method: "POST",
+      data: return_hash
+    });
+
+    req.done(function(response) {
+      console.log(response);
+      test = $(that).parent();
+      test.find(".score").text(response.score);
+
+    });
+  });
 
 });
