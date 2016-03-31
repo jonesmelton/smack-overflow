@@ -26,7 +26,8 @@ end
 post "/users" do #Make new user
  @user = User.new(params[:credentials])
   if @user.save
-    redirect '/login'
+    session[:user_id] = current_user.id
+    redirect '/questions'
   else
     @errors = @user.errors.full_messages
     redirect '/questions'
