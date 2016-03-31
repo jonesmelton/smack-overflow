@@ -1,9 +1,13 @@
 <div class="container">
   <% @questions.each do |question|%>
+  <div class="questions-container">
+  <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: question}) %>
   <div class="individual-question">
     <h4><a href="/questions/<%= question.id%>"><%= question.title %></a></h4>
     <p>Created by: <%= question.user.name %>, On: <%= question.created_at %></p>
     <span><%= question.score %> votes</span>
   </div>
+  </div>
     <% end %>
-</div>
+  </div>
+
