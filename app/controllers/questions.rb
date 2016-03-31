@@ -37,6 +37,16 @@ post '/questions/:question_id/answers' do
   end
 end
 
+post "/questions/:question_id/votes" do
+  authorize!
+  @question = Question.find(params[:question_id])
+  if @question.place_vote(params[:vote_type], current_user)
+    redirect "/questions/#{@question.id}"
+  else
+    redirect "/questions/#{@answer.question.id}"
+  end
+end
+
 get '/questions/:question_id/comments/new' do
   authorize!
   @question = Question.find(params[:question_id])
