@@ -13,7 +13,7 @@ end
 post '/questions' do
   authorize!
   @question = Question.new(params[:question])
-  if authenticate! && @question.save
+  if @question.save
     redirect '/questions'
   else
     erb :'questions/new'
@@ -38,11 +38,13 @@ post '/questions/:question_id/answers' do
 end
 
 get '/questions/:question_id/comments/new' do
+  authorize!
   @question = Question.find(params[:question_id])
   erb :'questions/new_comment'
 end
 
 post '/questions/:question_id/comments' do
+  authorize!
   @question = Question.find(params[:question_id])
   @comment = @question.comments.new(params[:comment])
   if @comment.save
