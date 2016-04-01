@@ -28,7 +28,7 @@
     <a class="buttons" href="/questions/<%= @question.id %>/answers/new">Talk some smack!</a>
   <% end %>
 
-    <% @question.answers.each do |answer|  %>
+    <% @question.answers.most_popular.each do |answer|  %>
 
     <div class="answers-container">
       <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>

@@ -14,4 +14,8 @@ class Question < ActiveRecord::Base
     Question.order(created_at: :desc).limit(10)
   end
 
+
+  def self.most_popular
+    Question.all.sort { |a,b| b.score <=> a.score}
+  end
 end
