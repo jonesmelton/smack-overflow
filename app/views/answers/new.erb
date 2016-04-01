@@ -1,7 +1,7 @@
 <div>
   <form class="new-answer" action="/questions/<%= @question.id %>/answers" method="post">
-    <input type="text" name="answer[content]" placeholder="Your answer">
-    <input type="hidden" name="answer[user_id]" value="<%= current_user.id %>">
+  <textarea id="answer-content" name="answer[content]" placeholder="Your answer" tabindex="3"></textarea>
+   <input type="hidden" name="answer[user_id]" value="<%= current_user.id %>">
     <input type="submit" value="Smack 'em!">
   </form>
 </div>

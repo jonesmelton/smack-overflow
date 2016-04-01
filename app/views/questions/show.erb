@@ -1,32 +1,41 @@
 <div class="container">
+
   <div class="questions-container">
     <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: @question}) %>
+
     <div class="individual-question">
-    <h4><%= @question.title %></h4>
-
-    <p>Created by: <%= @question.user.name %>, On: <%= long_form_date(@question.created_at) %></p>
-    <p><%= @question.content %></p>
+      <h4><%= @question.title %></h4>
+      <p>Created by: <%= @question.user.name %>, On: <%= long_form_date(@question.created_at) %></p>
+      <p><%= @question.content %></p>
     </div>
-    <% if @question.comments.count > 0 %>
-    <div class="comments-container">
-      <% @question.comments.each do |comment| %>
-        <%= erb :"comments/_comment_show", locals: {comment: comment} %>
-      <% end %>
 
-    </div>
-    <% end %>
+<!-- <<<<<<< HEAD -->
+
+
         <% if logged_in? %>
-          <a href="/questions/<%= @question.id %>/comments/new">Give your opinion on this stupid question.</a>
+        <form id="get-form-button" method="get" action="/questions/<%= @question.id %>/comments/new">
+          <input type="submit" class="buttons"  value="Give your opinion on this stupid question."><img src="http://www.sherv.net/cm/emoticons/fighting/smiley-slapping.gif"></input>
+        </form>
         <% end %>
+<!-- ======= -->
+
+      <div id="question-comments" class="comments-container">
+        <% @question.comments.each do |comment| %>
+          <%= erb :"comments/_comment_show", locals: {comment: comment} %>
+<!-- >>>>>>> b5b2c046891c2666ce1879e84cdab3b6c35b0055 -->
+
+        <% end %>
+        </div>
 
 
-  </div>
+    </div>
+
 
   <% if logged_in? %>
-    <a href="/questions/<%= @question.id %>/answers/new">Talk some smack!</a>
+    <a class="button" href="/questions/<%= @question.id %>/answers/new">Talk some smack!<span class="hand">✋</span></a>
   <% end %>
 
-    <% @question.answers.each do |answer|  %>
+    <% @question.answers.most_popular.each do |answer|  %>
 
     <div class="answers-container">
       <%= erb(:"/partials/_vote-buttons", locals: {votable_thing: answer}) %>
@@ -58,7 +67,10 @@
       </div>
 
       <% if logged_in? %>
-        <a href="/answers/<%= answer.id %>/comments/new">Talk about this smack.</a>
+
+
+        <a class="answer-comment-button button" href="/answers/<%= answer.id %>/comments/new">Talk about this smack.<span class="hand">✋</span></a>
+
       <% end %>
 
     </div>

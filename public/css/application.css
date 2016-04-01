@@ -2,8 +2,9 @@
   color: red;
 }
 
-* {
+html {
   /*font-size: .67em;*/
+  background-color: #A5C2EA;
 }
 
 .container {
@@ -30,8 +31,8 @@
 .answers-container {
   padding: 5px;
   /*border: 1px dotted blue;*/
-  background: linear-gradient(#1476FF, white);
-  border-radius: 10px;
+  background: linear-gradient(#1476FF, #A5C2EA);
+  border-radius: 50px;
   position: relative;
 }
 
@@ -45,16 +46,19 @@
 .comments-container {
   padding: 5px;
   margin: 5px;
+  min-height: 100px;
   /*border: 1px solid red;*/
   position: relative;
   /*background: linear-gradient(gray, white);*/
   border-radius: 10px;
 
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7f7f7f+0,7f7f7f+100&1+0,0+100 */
-background: -moz-linear-gradient(top,  rgba(127,127,127,1) 0%, rgba(127,127,127,0) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(127,127,127,1) 0%,rgba(127,127,127,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(127,127,127,1) 0%,rgba(127,127,127,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7f7f7f', endColorstr='#007f7f7f',GradientType=0 ); /* IE6-9 */
+ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100;White+to+Transparent */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
+
 
 
 }
@@ -82,34 +86,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7f7f7f', end
 }
 
 
-header {
+.header {
   text-align: center;
   font-size: 80px;
   font-family: 'Shadows Into Light', cursive, bold;
   display: inline;
   text-decoration: none;
+  margin-left: 28%;
 }
 
-header a {
+.header a {
   text-decoration: none;
 
 }
 
-header a:visited {
+.header a:visited {
   color: black;
 }
 
 #logo {
-  position: absolute;
-  left: 250px;
+
+  vertical-align: middle;
   width: 150px;
   height: 150px;
 }
 
 #title {
-  margin-left: 100px;
-  margin-right: 100px;
-  height: 100px;
+
 }
 
 nav {
@@ -118,10 +121,19 @@ nav {
   background-color: black;
   box-shadow: -10px 10px 5px gray;
   font-family: 'Orbitron', sans-serif;
+  font-size: 25px;
+  line-height: 90%;
+  height: 50px;
+  padding-top: 10px;
+  padding-right: 20px;
 }
 
 nav a:visited {
   color: white;
+}
+
+nav span {
+  margin-top: 55%;
 }
 
 h4 {
@@ -135,6 +147,8 @@ input {
   border: none;
 }
 
+
+
 .aligncenter {
   width:900px;
   height:3px;
@@ -146,3 +160,101 @@ input {
   display: block;
 }
 
+.buttons {
+  font-family: 'Orbitron', sans-serif;
+}
+
+footer {
+  position: relative;
+  bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#get-form-button input[type=submit]{
+
+  background-color: #ff6600;
+  border-radius: 50px;
+}
+
+#get-form-button input[type=submit]:hover {
+
+  background-color: #cc0000;
+}
+
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: white;
+}
+
+input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: white;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.user-form input[type=submit] {
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: blue;
+}
+
+.user-form input[type=submit]:hover {
+    background-color: #1476FF;
+}
+
+
+
+.registration-form {
+    border-radius: 5px;
+    background-color: ##A5C2EA;
+    padding: 40px;
+    width: 30%;
+    margin-left: 30%;
+}
+
+.button {
+  font-size: 20px;
+  background-color:
+}
+
+.hand {
+  font-size: 2.5em;
+  text-decoration: none;
+}
+
+a  {
+  text-decoration: none;
+}
+
+#answer-content {
+  margin-left: 30%;
+  height: 300px;
+  width: 600px;
+}

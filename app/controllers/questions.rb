@@ -40,17 +40,27 @@ end
 post "/questions/:question_id/votes" do
   authorize!
   @question = Question.find(params[:question_id])
-  if @question.place_vote(params[:vote_type], current_user)
-    redirect "/questions/#{@question.id}"
+  @vote = @question.votes.find_by(user: current_user)
+  if @vote
+    @vote.destroy
+  end
+  @question.place_vote(params[:vote_type], current_user)
+  if request.xhr?
+    content_type :json
+    {score: @question.score}.to_json
   else
-    redirect "/questions/#{@answer.question.id}"
+    redirect "/questions/#{@question.id}"
   end
 end
 
 get '/questions/:question_id/comments/new' do
   authorize!
   @question = Question.find(params[:question_id])
-  erb :'questions/new_comment'
+  if request.xhr?
+    erb :"partials/_question_comment", layout: false, locals: {question: @question}
+  else
+    erb :'questions/new_comment'
+  end
 end
 
 post '/questions/:question_id/comments' do
