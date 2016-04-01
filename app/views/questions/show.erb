@@ -9,13 +9,13 @@
       <p><%= @question.content %></p>
     </div>
 
-    <% if @question.comments.count > 0 %>
-      <div class="comments-container">
+
+      <div id="question-comments" class="comments-container">
         <% @question.comments.each do |comment| %>
           <%= erb :"comments/_comment_show", locals: {comment: comment} %>
         <% end %>
       </div>
-    <% end %>
+
 
         <% if logged_in? %>
           <a class="question-comment-button" href="/questions/<%= @question.id %>/comments/new">Give your opinion on this stupid question.</a>

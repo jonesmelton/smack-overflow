@@ -1,18 +1,16 @@
-// $(document).ready(function() {
-//   $(".question-comment-button").on("click", function(event){
-//     event.preventDefault();
-//     var $addCommentButton = $(this);
-//     var url = $(this).attr("href");
-//     $.ajax({
-//       url: url,
-//     }).done(function(renderForm){
-//       console.log(renderForm)
-//       $(this).before(renderForm);
-//       // console.log($addCommentButton.parent());
+$(document).ready(function() {
+  $(".question-comment-button").on("click", function(event){
+    event.preventDefault();
+    var $addCommentButton = $(this);
+    var url = $(this).attr("href");
+    $.ajax({
+      url: url,
+    }).done(function(renderForm){
+      console.log(renderForm)
+      $("#question-comments").append(renderForm);
 
-//       // $(this).parent().append(renderForm);
-//     });
-//     $(this).remove();
-//   });
+    });
+    // $(this).remove();
+  });
 
-// });
+});
