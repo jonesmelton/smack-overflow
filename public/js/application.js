@@ -33,4 +33,20 @@ $(document).ready(function() {
     });
   });
 
+  $(".button").on("mouseenter mouseleave", function(event){
+
+    hand = $(this).find(".hand")
+
+    console.log(hand.text());
+
+
+    if (hand.text() == "✋") {
+      hand.text("👋");
+    }
+    else {
+      hand.text("✋");
+    };
+
+  });
+
 });

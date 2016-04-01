@@ -167,8 +167,15 @@ footer {
   bottom: 0px;
 }
 
-form {
+#get-form-button input[type=submit]{
 
+  background-color: #ff6600;
+  border-radius: 50px;
+}
+
+#get-form-button input[type=submit]:hover {
+
+  background-color: #cc0000;
 }
 
 input[type=text], select {
@@ -206,19 +213,20 @@ input[type=password], select {
 
 .user-form input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #1476FF;
+    background-color: blue;
 }
 
 .user-form input[type=submit]:hover {
     background-color: #1476FF;
 }
+
+
 
 .registration-form {
     border-radius: 5px;
@@ -226,4 +234,18 @@ input[type=password], select {
     padding: 40px;
     width: 30%;
     margin-left: 30%;
+}
+
+.button {
+  font-size: 20px;
+  background-color:
+}
+
+.hand {
+  font-size: 2.5em;
+  text-decoration: none;
+}
+
+a  {
+  text-decoration: none;
 }

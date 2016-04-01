@@ -32,7 +32,7 @@
 
 
   <% if logged_in? %>
-    <a class="buttons" href="/questions/<%= @question.id %>/answers/new">Talk some smack!</a>
+    <a class="button" href="/questions/<%= @question.id %>/answers/new">Talk some smack!<span class="hand">✋</span></a>
   <% end %>
 
     <% @question.answers.most_popular.each do |answer|  %>
@@ -69,7 +69,7 @@
       <% if logged_in? %>
 
 
-        <a class="answer-comment-button" href="/answers/<%= answer.id %>/comments/new">Talk about this smack.</a>
+        <a class="answer-comment-button button" href="/answers/<%= answer.id %>/comments/new">Talk about this smack.<span class="hand">✋</span></a>
 
       <% end %>
 
